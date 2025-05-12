@@ -1,0 +1,58 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
+}
+
+android {
+    namespace 'com.julio.tasky'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.julio.tasky"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.firebase.auth
+    implementation libs.credentials
+    implementation libs.googleid
+    implementation libs.activity
+    implementation libs.constraintlayout
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    implementation libs.google.material
+    implementation libs.circleimageview
+    implementation platform(libs.firebase.bom)
+    implementation libs.firebase.storage.ktx
+    implementation libs.glide
+    implementation libs.firebase.firestore
+    implementation libs.play.services.gcm
+    implementation libs.media3.common
+    implementation libs.contentpager
+    implementation(libs.play.services.base.v1820)
+    annotationProcessor(libs.compiler)
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
